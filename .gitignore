@@ -1,0 +1,62 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio cache/options
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Build outputs
+*.dll
+*.exe
+*.pdb
+*.cache
+*.swp
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.coverage
+*.coveragexml
+
+# Rider / ReSharper
+.idea/
+*.DotSettings.user
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
