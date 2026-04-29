@@ -1,0 +1,32 @@
+name: Deploy Remote Agent
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ubuntu
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ~/remote-agent || git clone https://github.com/Satosh-J/remote-agent.git ~/remote-agent
+            cd ~/remote-agent
+            git pull
+
+            docker build -t remote-agent .
+
+            docker stop remote-agent || true
+            docker rm remote-agent || true
+
+            docker run -d \
+              --name remote-agent \
+              --restart unless-stopped \
+              remote-agent
