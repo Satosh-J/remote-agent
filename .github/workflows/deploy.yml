@@ -19,6 +19,7 @@ jobs:
           script: |
             cd ~/remote-agent || git clone https://github.com/Satosh-J/remote-agent.git ~/remote-agent
             cd ~/remote-agent
+
             git pull
 
             docker build -t remote-agent .
@@ -29,4 +30,5 @@ jobs:
             docker run -d \
               --name remote-agent \
               --restart unless-stopped \
+              -e ENVIRONMENT=Production \
               remote-agent
